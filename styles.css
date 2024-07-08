@@ -1,76 +1,177 @@
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-
+@font-face {
+  font-family: "happy_monkeyregular";
+  src: url("fonts/happy_monkey/happymonkey-regular-webfont.woff2")
+      format("woff2"),
+    url("fonts/happy_monkey/happymonkey-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 * {
-    margin: 0;
+  margin: 0;
 }
 
 body {
-    height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "happy_monkeyregular", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-p{
-    font-size: 1.5rem;
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
 }
-.container {
-   text-align: center;
-   margin-top: 200px;
-   border: 4px solid black;
-   border-radius: 12px;
-   padding: 20px;
 
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
 .board {
-    display: grid;
-    grid-template-columns: repeat(3,100px);
-    gap: 5px;
-    background-color: #ffffff;
-    padding: 10px;
-    margin:30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .cell {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-    cursor: pointer;
-    background-color: #e3e3e3;
-    border: 2px solid #151515;
-    border-radius: 10px;
-    color: #383838;
-    height: 100px;
-    transition: background-color 0.3s, color 0.3s;
+  background-color: white;
+  font-size: 2.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #059669;
+  border-top: none;
+  border-left: none;
+  flex-shrink: 0;
+  width: 150px;
+  height: 150px;
+}
+.cell.x {
+  color: #f43f5e;
 }
 
-.cell:hover {
-    background-color: #ccc;
+.cell.o {
+  color: #3b82f6;
+}
+.cell:nth-child(3n) {
+  border-right: none;
 }
 
-#status-message {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+.cell:nth-child(n + 7) {
+  border-bottom: none;
 }
 
-#reset-button {
-    font-size: 1rem;
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+.reset-button,
+#start-game {
+  padding: 8px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  width: 150px;
+  background-color: #10b981;
+  border: none;
+  color: rgb(255, 255, 255);
+  margin-left: 35px;
+}
+.reset-button {
+  margin-top: 40px;
+  margin-left: 148px;
 }
 
-#reset-button:hover {
-    background-color: #45a049;
+.reset-button:hover,
+#start-game {
+  cursor: pointer;
+  background-color: #0fcd8e;
+  transition: ease-in-out 0.3s;
 }
 
+.turn {
+  margin-bottom: 20px;
+  font-size: 1.7rem;
+  color: #059669;
+  text-align: center;
+  font-weight: bold;
+}
+
+#start-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#winner-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#winner-message {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+#close-winner {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  width: 150px;
+  background-color: #10b981;
+  border: none;
+  color: rgb(255, 255, 255);
+}
+
+h2 {
+  color: #16a34a;
+}
+
+input {
+  appearance: none;
+}
+input {
+  border-radius: 10px;
+  padding: 4px;
+  border: 2px solid grey;
+}
+
+input:hover,
+input:active,
+input:focus {
+  border: 2px solid grey;
+  outline: none;
+}
+
+#start-screen {
+  border: 3px solid #10b981;
+  display: flex;
+  justify-content: center;
+
+  padding: 50px;
+  height: 300px;
+  border-radius: 12px;
+}

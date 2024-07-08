@@ -6,25 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>TIC-TAC-TOE</title>
-    <script src="index.js" defer> </script>
+    <script src="script.js" defer> </script>
 </head>
 
 <body>
-    <div class="container">
-        <p>Tic-Tac-Toe</p>
-        <div id="game-board" class="board">
-            <div class="cell" data-index="0"></div>
-            <div class="cell" data-index="1"></div>
-            <div class="cell" data-index="2"></div>
-            <div class="cell" data-index="3"></div>
-            <div class="cell" data-index="4"></div>
-            <div class="cell" data-index="5"></div>
-            <div class="cell" data-index="6"></div>
-            <div class="cell" data-index="7"></div>
-            <div class="cell" data-index="8"></div>
-        </div>
-        <div id="status-message"></div>
-        <button id="reset-button">Reset Game</button>
+    <div id="start-screen">
+        <h2>Enter your name</h2>
+        <input type="text" id="player1-name" placeholder="Player 1 Name">
+        <input type="text" id="player2-name" placeholder="Player 2 Name">
+        <button id="start-game">Start Game</button>
+    </div>
+    <div id="game-screen" style="display: none;">
+        <div class="turn"></div>
+        <div class="board"></div> 
+        <button class="reset-button">Reset Game</button>
+    </div>
+    <div id="winner-screen" style="display: none;">
+        <div id="winner-message"></div>
+        <button id="close-winner">Close</button>
     </div>
 </body>
 
