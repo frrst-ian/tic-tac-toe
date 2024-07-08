@@ -26,7 +26,9 @@ Tic-Tac-Toe is a classic two-player game played on a 3x3 grid. Players take turn
 ## Installation
 
 To play in your web-browser , copy or click this link:
--`https://frrst-ian.github.io/tic-tac-toe/`
+
+  - https://frrst-ian.github.io/tic-tac-toe/
+
 `To set up the Tic-Tac-Toe game on your local machine, follow these steps:
 
 1. Clone the repository:
