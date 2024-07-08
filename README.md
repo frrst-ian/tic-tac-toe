@@ -28,7 +28,7 @@ Tic-Tac-Toe is a classic two-player game played on a 3x3 grid. Players take turn
 To set up the Tic-Tac-Toe game on your local machine, follow these steps:
 
 1. Clone the repository:
-   git clone git@github.com:frrst-ian/tic-tac-toe.git
+   `git clone git@github.com:frrst-ian/tic-tac-toe.git`
 
 2. Navigate to the project directory:
    `cd tic-tac-toe`
@@ -36,7 +36,7 @@ To set up the Tic-Tac-Toe game on your local machine, follow these steps:
 3. Run the game:
    - For web version, open `index.html` in your browser
 
-## License
+## License  
 
 This project is currently not licensed. All rights are reserved by the project owner. 
 
