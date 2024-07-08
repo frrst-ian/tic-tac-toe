@@ -40,6 +40,8 @@ To set up the Tic-Tac-Toe game on your local machine, follow these steps:
 
 This project is currently not licensed. All rights are reserved by the project owner. 
 
+## Authors 
+
 <p>
   <a href="https://github.com/frrst-ian" target="_blank">
     <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
@@ -48,8 +50,3 @@ This project is currently not licensed. All rights are reserved by the project o
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram">
   </a>
 </p>
-
-## Authors 
-
-- https://github.com/frrst-ian
-- https://www.instagram.com/sushi8k
