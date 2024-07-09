@@ -1,4 +1,4 @@
-// The Gameboard() represents the state of the board
+// The Gameboard represents the state of the board
 function Gameboard() {
     const rows = 3;
     const columns = 3;
@@ -14,10 +14,12 @@ function Gameboard() {
         }
     };
 
+    //Initialize board
     initBoard();
     //Get the board
     const getBoard = () => board;
 
+    //Adding token('X' and 'O')
     const addToken = (row, column, player) => {
         if (board[row][column].getValue() === "") {
             board[row][column].addToken(player);
@@ -26,10 +28,12 @@ function Gameboard() {
         return false;
     };
 
+    //Reset board
     const resetBoard = () => {
         initBoard();
     }
 
+    //Print board
     const printBoard = () => {
         const boardWithCellValues = board.map(row => row.map((cell) => cell.getValue()));
         console.log(boardWithCellValues);
@@ -38,6 +42,7 @@ function Gameboard() {
     return { getBoard, resetBoard, addToken, printBoard };
 }
 
+//Create cell that can add the token and can get the value of the token
 const Cell = () => {
     let value = "";
 
@@ -53,22 +58,26 @@ const Cell = () => {
     };
 };
 
+//Factory function for the player name and marker
 const Player = (name, marker) => {
     return { name, marker };
 };
 
+//The state of the game, I used IIFE
 const GameController = (() => {
     let currentPlayer;
     const players = [];
     let gameActive = true;
     let board;
 
+    //All possible winning combinations
     const winningCombinations = [
         [[0, 0], [0, 1], [0, 2]], [[1, 0], [1, 1], [1, 2]], [[2, 0], [2, 1], [2, 2]], // Rows
         [[0, 0], [1, 0], [2, 0]], [[0, 1], [1, 1], [2, 1]], [[0, 2], [1, 2], [2, 2]], // Columns
         [[0, 0], [1, 1], [2, 2]], [[0, 2], [1, 1], [2, 0]] // Diagonals
     ];
 
+    //Initial game state
     const Initialize = (player1Name, player2Name) => {
         board = Gameboard();
         const player1 = Player(player1Name, 'X');
@@ -80,11 +89,12 @@ const GameController = (() => {
         board.printBoard();
         console.log(`${currentPlayer.name}'s turn`);
     };
-
+    //To determine who's player turn it is
     const switchTurn = () => {
         currentPlayer = currentPlayer === players[0] ? players[1] : players[0];
     };
 
+    //For checking wins
     const checkWin = () => {
         const boardState = board.getBoard();
         for (let combination of winningCombinations) {
@@ -121,6 +131,7 @@ const GameController = (() => {
         return null;
     };
 
+    //Reset the game , also clears the board
     const resetGame = () => {
         board.resetBoard();
         currentPlayer = players[0];
@@ -142,6 +153,7 @@ const GameController = (() => {
     };
 })();
 
+//Control the content of the screen
 function screenController() {
     const startScreen = document.getElementById('start-screen');
     const gameScreen = document.getElementById('game-screen');
@@ -165,6 +177,7 @@ function screenController() {
         winnerScreen.style.display = 'none';
         updateScreen();
     });
+
     const updateScreen = () => {
         console.log("Updating screen");
         boardDiv.innerHTML = ""; // Clear the board
@@ -197,9 +210,10 @@ function screenController() {
             playerTurnDiv.textContent = 'Game Over';
         }
     };
+    
     const showWinnerScreen = (message) => {
         winnerMessage.textContent = message;
-        winnerScreen.style.display = 'flex';  // Changed to 'flex' to ensure proper layout
+        winnerScreen.style.display = 'flex';  
     };
 
     boardDiv.addEventListener('click', (e) => {
